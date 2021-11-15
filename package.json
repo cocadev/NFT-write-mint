@@ -1,0 +1,14 @@
+{
+  "name": "my-nft",
+  "version": "1.0.0",
+  "description": "My first NFT!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eugene",
+  "license": "ISC",
+  "devDependencies": {
+    "hardhat": "^2.6.8"
+  }
+}
