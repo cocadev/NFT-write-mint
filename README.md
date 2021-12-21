@@ -1,4 +1,4 @@
-# NFT-write with react.js
+# NFT-write with react.js 2
 
 * connect metamask
 * mint
