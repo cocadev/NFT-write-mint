@@ -6,20 +6,20 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3")
 const web3 = createAlchemyWeb3(API_URL)
 
-const contract = require("../artifacts/contracts/MyNFT.sol/MyNFT.json")
-const contractAddress = "0x1140DCE83d429eFa118832f714a66210Fc32e848"
+const contract = require("../artifacts/contracts/MetaSalt.sol/NFT.json")
+const contractAddress = "0x570d251af3cc07be28d930fab0f31cd338eac8f3"
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress)
 
 async function mintNFT(tokenURI) {
-    const nonce = await web3.eth.getTransactionCount(PUBLIC_KEY, "latest") //get latest nonce
+    const nonce = await web3.eth.getTransactionCount('0x4e37e532354c6D242168A570AFDBDd2fD7faB2F8', "latest") + 60 //get latest nonce
     //the transaction
     console.log(nonce)
     const tx = {
-      from: PUBLIC_KEY,
+      from: '0x4e37e532354c6D242168A570AFDBDd2fD7faB2F8',
       to: contractAddress,
       nonce: nonce,
       gas: 500000,
-      data: nftContract.methods.mintNFT(PUBLIC_KEY, tokenURI).encodeABI(),
+      data: nftContract.methods.mintToken(tokenURI).encodeABI(),
     }
   
     const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY)
@@ -47,8 +47,16 @@ async function mintNFT(tokenURI) {
         console.log(" Promise failed:", err)
       })
   }
-  
   mintNFT(
-    "https://gateway.pinata.cloud/ipfs/QmZRfpGWP1EYrwhHLcM2qhZETHSGGGAtcRecnjtj4pSP13"
+    JSON.stringify({
+      image: 'https://ipfs.moralis.io:2053/ipfs/Qmf49rrQJpHkJVhtDEbzxwpS72encEhyetUvdbnRD2B5Hr',
+      description: '25 ehters',
+      name: 'Crypto Funcky 3',
+      price: '0.05'
+    })
   )
+  
+  // mintNFT(
+  //   "https://gateway.pinata.cloud/ipfs/QmZRfpGWP1EYrwhHLcM2qhZETHSGGGAtcRecnjtj4pSP13"
+  // )
   

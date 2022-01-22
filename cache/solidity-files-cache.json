@@ -478,6 +478,45 @@
       "artifacts": [
         "IERC165"
       ]
+    },
+    "E:\\blockchain\\NFT-write\\contracts\\MetaSalt.sol": {
+      "lastModificationDate": 1642217244325,
+      "contentHash": "c34015138e33a2ee13b8b053621a3080",
+      "sourceName": "contracts/MetaSalt.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/utils/Counters.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "NFT"
+      ]
     }
   }
 }
